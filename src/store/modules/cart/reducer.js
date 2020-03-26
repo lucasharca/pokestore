@@ -2,6 +2,7 @@ import produce from 'immer';
 
 const INITIAL_STATE = {
   products: [],
+  modal: false,
 };
 
 export default function cart(state = INITIAL_STATE, action) {

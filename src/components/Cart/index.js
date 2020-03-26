@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeFromCart, clearCart } from '../../store/modules/cart/actions';
+import { removeFromCart } from '../../store/modules/cart/actions';
+
+import { showModal } from '../../store/modules/modal/actions';
 
 import { Container, PokeContainer, Header, Footer, TotalCount } from './styles';
 
@@ -65,7 +67,12 @@ export default function Cart() {
           <span>{subTotal > 0 ? `R$${subTotal}` : 'R$0.00'}</span>
         </TotalCount>
         <div>
-          <button type="button" onClick={() => dispatch(clearCart())}>
+          <button
+            type="button"
+            disabled={products.length <= 0}
+            className={products.length <= 0 ? 'disabled' : null}
+            onClick={() => dispatch(showModal())}
+          >
             Finalizar Compra
           </button>
         </div>

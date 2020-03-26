@@ -6,6 +6,7 @@ import { FaSearch } from 'react-icons/fa';
 import { setSearchValue } from '../../store/modules/search/actions';
 
 import { Container, Content } from './styles';
+import logo from '../../assets/images/logo.png';
 import Icon from '../../assets/images/poke-ball-png-4.png';
 
 export default function Header() {
@@ -20,10 +21,18 @@ export default function Header() {
   return (
     <Container>
       <Content>
-        <Link to="/">
-          <img src={Icon} alt="pokeball" />
-        </Link>
-
+        <div>
+          <span>
+            <Link to="/">
+              <img src={Icon} alt="pokeball" />
+            </Link>
+          </span>
+          <span>
+            <Link to="/">
+              <img src={logo} alt="logo" />
+            </Link>
+          </span>
+        </div>
         <form onSubmit={handleSearch}>
           <input
             placeholder="Pesquisar..."

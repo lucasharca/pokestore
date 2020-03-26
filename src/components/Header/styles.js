@@ -18,6 +18,17 @@ export const Content = styled.div`
   margin: 0 auto;
   vertical-align: center;
 
+  div {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+
+    span {
+      padding: 0 5px;
+    }
+  }
+
   input {
     height: 40px;
     font-size: 20px;

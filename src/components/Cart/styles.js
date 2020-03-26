@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 export const Container = styled.div`
   display: flex;
@@ -70,6 +71,18 @@ export const Footer = styled.footer`
     font-size: 20px;
     color: #fff;
     border-radius: 0 0 4px 4px;
+
+    &:hover {
+      background: ${darken(0.05, '#ef5350')};
+      transition: background 0.5s;
+    }
+  }
+
+  .disabled {
+    background: #ddd;
+    &:hover {
+      background: #ddd;
+    }
   }
 `;
 
