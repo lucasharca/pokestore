@@ -18,7 +18,6 @@ export default function Modal() {
       >
         <div className="topPokebal">
           <span>Compra realizada com sucesso!</span>
-          <span> Retorno de R$xxx,xxx</span>
         </div>
         <div className="bottomPokeball">
           <span>

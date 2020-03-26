@@ -10,6 +10,10 @@ export const Container = styled.div`
   min-width: 275px;
   height: 744px;
   background: #fff;
+
+  @media (max-width: 660px) {
+    height: 300px;
+  }
 `;
 
 export const Header = styled.header`

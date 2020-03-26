@@ -105,7 +105,8 @@ export default function Home() {
                   className={productInCart(product.pokemon.name, products)}
                 >
                   <span>
-                    {productInCart(product.pokemon.name, products) === 'inCart'
+                    {productInCart(product.pokemon.name, products) ===
+                    'disabled'
                       ? 'NO CARRINHO'
                       : 'ADICIONAR AO CARRINHO'}
                   </span>
@@ -118,7 +119,12 @@ export default function Home() {
       <Cart />
       <Pagination>
         <div>
-          <button type="button" onClick={pageDown} disabled={firstIndex <= 0}>
+          <button
+            type="button"
+            onClick={pageDown}
+            disabled={firstIndex <= 0}
+            className={firstIndex <= 0 ? 'disabled' : null}
+          >
             <FaLessThan />
           </button>
           <span>{page}</span>
@@ -126,6 +132,7 @@ export default function Home() {
             type="button"
             onClick={pageUp}
             disabled={lastIndex >= pokemon.length}
+            className={lastIndex >= pokemon.length ? 'disabled' : null}
           >
             <FaGreaterThan />
           </button>
