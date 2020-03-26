@@ -132,6 +132,15 @@ export const Pagination = styled.div`
     }
   }
 
+  .disabled {
+    background: #ddd;
+    cursor: auto;
+
+    :hover {
+      background: #ddd;
+      transition: background 0.5s;
+    }
+  }
   span {
     color: #fff;
     font-weight: bold;
