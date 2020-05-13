@@ -4,7 +4,7 @@ export const Container = styled.header`
   display: flex;
   height: 75px;
   align-items: center;
-  background: #ef5350;
+  background: ${props => props.theme.colors.primary};
   padding: 0 15px;
 `;
 
@@ -48,6 +48,13 @@ export const Content = styled.div`
     border: none;
     background: #fff;
     color: #444;
+  }
+
+  .changeStore {
+    border: none;
+    border-radius: 4px;
+    width: 200px;
+    padding: 8px;
   }
   img {
     height: 65px;

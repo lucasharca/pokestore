@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import { setSearchValue } from '../../store/modules/search/actions';
 
-import { Container, Content } from './styles';
+import { Container, Content, ChangeTheme } from './styles';
 import logo from '../../assets/images/logo.png';
 import Icon from '../../assets/images/poke-ball-png-4.png';
 
@@ -33,6 +33,7 @@ export default function Header() {
             </Link>
           </span>
         </div>
+
         <form onSubmit={handleSearch}>
           <input
             placeholder="Pesquisar..."

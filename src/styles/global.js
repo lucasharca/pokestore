@@ -9,7 +9,7 @@ export default createGlobalStyle`
   }
 
   body{
-    background: rgb(25, 25, 32) repeat center top;
+    background: ${props => props.theme.colors.background} repeat center top;
     background-size: 50px;
     -webkit-font-smoothing: antialiased;
   }

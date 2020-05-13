@@ -1,6 +1,30 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
+export const Wrapper = styled.div`
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+
+  > button {
+    width: 280px;
+    align-self: center;
+    padding: 8px;
+    font-weight: bold;
+    color: #fff;
+    background: ${props => props.theme.colors.primary};
+    border: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    &:hover {
+      background: ${props =>
+        props.theme.colors.primary && darken(0.05, props.theme.colors.primary)};
+      transition: background 0.5s;
+    }
+  }
+`;
+
 export const Container = styled.div`
   max-width: 1100px;
   display: grid;
@@ -104,9 +128,10 @@ export const ProductList = styled.ul`
   }
 
   .notInCart {
-    background: #ef5350;
+    background: ${props => props.theme.colors.primary};
     &:hover {
-      background: ${darken(0.05, '#ef5350')};
+      background: ${props =>
+        props.theme.colors.primary && darken(0.05, props.theme.colors.primary)};
       transition: background 0.5s;
     }
   }
@@ -121,13 +146,14 @@ export const Pagination = styled.div`
     width: 80px;
     height: 40px;
     border: none;
-    background-color: #ef5350;
+    background-color: ${props => props.theme.colors.primary};
     border-radius: 4px;
     color: #fff;
     margin: 0 30px;
 
     :hover {
-      background: ${darken(0.05, '#ef5350')};
+      background: ${props =>
+        props.theme.colors.primary && darken(0.05, props.theme.colors.primary)};
       transition: background 0.5s;
     }
   }

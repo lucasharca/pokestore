@@ -60,7 +60,7 @@ export const PokeContainer = styled.ul`
     padding-bottom: 2px;
     padding-left: 5px;
     :hover {
-      color: #ef5350;
+      color: ${props => props.theme.colors.primary};
     }
   }
 `;
@@ -70,14 +70,15 @@ export const Footer = styled.footer`
     width: 100%;
     border: none;
     height: 40px;
-    background: #ef5350;
+    background: ${props => props.theme.colors.primary};
     font-weight: bold;
     font-size: 20px;
     color: #fff;
     border-radius: 0 0 4px 4px;
 
     &:hover {
-      background: ${darken(0.05, '#ef5350')};
+      background: ${props =>
+        props.theme.colors.primary && darken(0.05, props.theme.colors.primary)};
       transition: background 0.5s;
     }
   }

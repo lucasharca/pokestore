@@ -1,5 +1,17 @@
+import { keyframes } from 'styled-components';
 import Modal from 'styled-react-modal';
 import { darken } from 'polished';
+
+const appearModal = keyframes`
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }to{
+    opacity: 1;
+    transform: scale(1);
+  }
+
+`;
 
 export const StyledModal = Modal.styled`
   width: 30rem;
@@ -14,6 +26,8 @@ export const StyledModal = Modal.styled`
   border-radius: 50%;
   background #fff;
   overflow: hidden;
+
+  animation: ${appearModal} 0.5s;
 
   @media (max-width: 400px) {
     width: 20rem;
