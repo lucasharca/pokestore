@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
@@ -34,7 +34,7 @@ function App() {
             <ModalProvider>
               <Modal />
             </ModalProvider>
-            <Header />
+            <Header changeTheme={changeTheme} />
             <Home changeTheme={changeTheme} />
             <GlobalStyle />
           </ThemeProvider>

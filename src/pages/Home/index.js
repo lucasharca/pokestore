@@ -20,7 +20,7 @@ import { addToCartRequest } from '../../store/modules/cart/actions';
 
 import Cart from '../../components/Cart';
 
-export default function Home({ changeTheme }) {
+export default function Home() {
   const [pokemon, setPokemon] = useState([]);
   const [pokemonCopy, setPokemonCopy] = useState([]);
   const [page, setPage] = useState(1);
@@ -57,7 +57,7 @@ export default function Home({ changeTheme }) {
       setPokemonCopy(data);
     }
     getPokemon();
-  }, [page, pokemonCopy]);
+  }, [page, pokemonCopy, typeNumber]);
 
   useEffect(() => {
     if (page !== 1) {
@@ -79,26 +79,16 @@ export default function Home({ changeTheme }) {
     setPage(page + 1);
     setFirstIndex(firstIndex + 10);
     setLastIndex(lastIndex + 10);
-  }, [page]);
+  }, [page, firstIndex, lastIndex]);
 
   const pageDown = useCallback(() => {
     setPage(page - 1);
     setFirstIndex(firstIndex - 10);
     setLastIndex(lastIndex - 10);
-  }, [page]);
-
-  const handleThemeChange = useCallback(() => {
-    setPage(1);
-    setFirstIndex(0);
-    setLastIndex(9);
-    changeTheme();
-  }, [changeTheme]);
+  }, [page, firstIndex, lastIndex]);
 
   return (
     <Wrapper>
-      <button type="button" onClick={handleThemeChange}>
-        Trocar Loja
-      </button>
       <Container>
         <ProductContainer>
           <ProductList>
@@ -118,6 +108,7 @@ export default function Home({ changeTheme }) {
 
                   <button
                     type="button"
+                    title="Adicionar ao Carrinho"
                     onClick={() =>
                       handleAddProduct({
                         name: product.pokemon.name,
@@ -146,6 +137,7 @@ export default function Home({ changeTheme }) {
               onClick={pageDown}
               disabled={firstIndex <= 0}
               className={firstIndex <= 0 ? 'disabled' : null}
+              title="Página Anterior"
             >
               <FaLessThan />
             </button>
@@ -155,6 +147,7 @@ export default function Home({ changeTheme }) {
               onClick={pageUp}
               disabled={lastIndex >= pokemon.length}
               className={lastIndex >= pokemon.length ? 'disabled' : null}
+              title="Próxima Página"
             >
               <FaGreaterThan />
             </button>

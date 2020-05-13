@@ -50,12 +50,12 @@ export const Content = styled.div`
     color: #444;
   }
 
-  .changeStore {
+  .changeTheme {
     border: none;
     border-radius: 4px;
-    width: 200px;
-    padding: 8px;
+    margin-left: 8px;
   }
+
   img {
     height: 65px;
     padding-top: 2px;

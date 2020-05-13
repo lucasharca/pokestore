@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { FaExchangeAlt, FaSearch } from 'react-icons/fa';
 
-import { FaSearch } from 'react-icons/fa';
 import { setSearchValue } from '../../store/modules/search/actions';
 
-import { Container, Content, ChangeTheme } from './styles';
+import { Container, Content } from './styles';
 import logo from '../../assets/images/logo.png';
 import Icon from '../../assets/images/poke-ball-png-4.png';
 
-export default function Header() {
+export default function Header({ changeTheme }) {
   const [search, setSearch] = useState('');
   const dispatch = useDispatch();
 
@@ -34,16 +34,26 @@ export default function Header() {
           </span>
         </div>
 
-        <form onSubmit={handleSearch}>
-          <input
-            placeholder="Pesquisar..."
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-          />
-          <button type="submit">
-            <FaSearch />
+        <div>
+          <form onSubmit={handleSearch}>
+            <input
+              placeholder="Pesquisar..."
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+            />
+            <button type="submit" title="Buscar">
+              <FaSearch />
+            </button>
+          </form>
+          <button
+            className="changeTheme"
+            onClick={changeTheme}
+            type="button"
+            title="Trocar Loja"
+          >
+            <FaExchangeAlt />
           </button>
-        </form>
+        </div>
       </Content>
     </Container>
   );

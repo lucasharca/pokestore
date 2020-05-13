@@ -50,6 +50,7 @@ export default function Cart() {
               <span>
                 <button
                   type="button"
+                  title="Remover do Carrinho"
                   onClick={() => {
                     handleRemoveProduct(product.dexNum);
                   }}
@@ -69,6 +70,7 @@ export default function Cart() {
         <div>
           <button
             type="button"
+            title="Finalizar Compra"
             disabled={products.length <= 0}
             className={products.length <= 0 ? 'disabled' : null}
             onClick={() => dispatch(showModal())}
