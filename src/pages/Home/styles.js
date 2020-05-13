@@ -1,5 +1,15 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { darken } from 'polished';
+
+const appearDiv = keyframes`
+  from {
+    opacity: 0;
+    transform: scaleY(0.8);
+  }to{
+    opacity: 1;
+    transform: scaleY(1);
+  }
+`;
 
 export const Wrapper = styled.div`
   max-width: 1100px;
@@ -46,7 +56,9 @@ export const Container = styled.div`
     grid-template-columns: 1fr;
   }
 `;
-export const ProductContainer = styled.div``;
+export const ProductContainer = styled.div`
+  animation: ${appearDiv} 1s;
+`;
 
 export const ProductList = styled.ul`
   display: grid;

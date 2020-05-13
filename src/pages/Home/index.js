@@ -75,21 +75,28 @@ export default function Home({ changeTheme }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchString]);
 
-  function pageUp() {
+  const pageUp = useCallback(() => {
     setPage(page + 1);
     setFirstIndex(firstIndex + 10);
     setLastIndex(lastIndex + 10);
-  }
+  }, [page]);
 
-  function pageDown() {
+  const pageDown = useCallback(() => {
     setPage(page - 1);
     setFirstIndex(firstIndex - 10);
     setLastIndex(lastIndex - 10);
-  }
+  }, [page]);
+
+  const handleThemeChange = useCallback(() => {
+    setPage(1);
+    setFirstIndex(0);
+    setLastIndex(9);
+    changeTheme();
+  }, [changeTheme]);
 
   return (
     <Wrapper>
-      <button type="button" onClick={changeTheme}>
+      <button type="button" onClick={handleThemeChange}>
         Trocar Loja
       </button>
       <Container>
