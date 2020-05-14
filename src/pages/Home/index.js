@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThemeContext } from 'styled-components';
-import { createBrowserHistory } from 'history';
 
 import { FaLessThan, FaGreaterThan } from 'react-icons/fa';
 import api from '../../services/api';
@@ -28,7 +27,6 @@ export default function Home() {
   const [firstIndex, setFirstIndex] = useState(0);
   const [lastIndex, setLastIndex] = useState(9);
   const { typeNumber } = useContext(ThemeContext);
-  const history = createBrowserHistory();
 
   const products = useSelector(state => state.cart.products);
   const searchString = useSelector(state => state.search.pokemon);
