@@ -6,6 +6,7 @@ import { FaLessThan, FaGreaterThan } from 'react-icons/fa';
 import api from '../../services/api';
 
 import dexNumber from '../../util/dexNumber';
+import Header from '../../components/Header';
 
 import PokeShadow from '../../assets/images/poke-shadow.png';
 import {
@@ -57,7 +58,7 @@ export default function Home() {
       setPokemonCopy(data);
     }
     getPokemon();
-  }, [page, pokemonCopy, typeNumber]);
+  }, [typeNumber]);
 
   useEffect(() => {
     if (page !== 1) {
