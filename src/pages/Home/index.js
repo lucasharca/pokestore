@@ -51,7 +51,7 @@ export default function Home() {
   useEffect(() => {
     async function getPokemon() {
       if (typeNumber !== '10' && typeNumber !== '11') {
-        console.log('errou');
+        return;
       }
       const response = await api.get(`type/${typeNumber}/`);
       const data = response.data.pokemon.map(item => ({
