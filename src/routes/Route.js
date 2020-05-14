@@ -9,7 +9,6 @@ export default function RouteWrapper({
 }) {
   const { typeNumber } = useContext(ThemeContext);
   const validNumber = typeNumber === '10' || typeNumber === '11';
-  console.log(validNumber);
 
   if (!validNumber && isPrivate) {
     return <Redirect to="/" />;
