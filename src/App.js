@@ -8,22 +8,27 @@ import Modal from './components/Modal';
 
 import fire from './styles/themes/fire';
 import water from './styles/themes/water';
+import neutral from './styles/themes/neutral';
 
 import './config/ReactotronConfig';
 
 import GlobalStyle from './styles/global';
 
-import Header from './components/Header';
-import Home from './pages/Home';
+import Routes from './routes';
+
+import { ChangeProvider } from './hooks/Change';
 
 import { store, persistor } from './store';
 
 function App() {
-  const [theme, setTheme] = useState(fire);
+  const [theme, setTheme] = useState(neutral);
 
   const changeTheme = () => {
-    setTheme(theme.title === 'fire' ? water : fire);
-    console.log(theme);
+    setTheme(theme.title !== 'fire' ? fire : water);
+  };
+
+  const chooseTheme = themeName => {
+    setTheme(themeName !== 'fire' ? water : fire);
   };
 
   return (
@@ -34,8 +39,9 @@ function App() {
             <ModalProvider>
               <Modal />
             </ModalProvider>
-            <Header changeTheme={changeTheme} />
-            <Home changeTheme={changeTheme} />
+            <ChangeProvider chooseTheme={chooseTheme}>
+              <Routes changeTheme={changeTheme} />
+            </ChangeProvider>
             <GlobalStyle />
           </ThemeProvider>
         </BrowserRouter>

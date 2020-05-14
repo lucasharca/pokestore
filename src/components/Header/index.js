@@ -9,9 +9,11 @@ import { Container, Content } from './styles';
 import logo from '../../assets/images/logo.png';
 import Icon from '../../assets/images/poke-ball-png-4.png';
 
-export default function Header({ changeTheme }) {
+export default function Header(props) {
   const [search, setSearch] = useState('');
   const dispatch = useDispatch();
+
+  const { changeTheme } = props;
 
   function handleSearch(e) {
     e.preventDefault();

@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useCallback, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThemeContext } from 'styled-components';
+import { createBrowserHistory } from 'history';
 
 import { FaLessThan, FaGreaterThan } from 'react-icons/fa';
 import api from '../../services/api';
 
 import dexNumber from '../../util/dexNumber';
-import Header from '../../components/Header';
 
 import PokeShadow from '../../assets/images/poke-shadow.png';
 import {
@@ -28,6 +28,7 @@ export default function Home() {
   const [firstIndex, setFirstIndex] = useState(0);
   const [lastIndex, setLastIndex] = useState(9);
   const { typeNumber } = useContext(ThemeContext);
+  const history = createBrowserHistory();
 
   const products = useSelector(state => state.cart.products);
   const searchString = useSelector(state => state.search.pokemon);
@@ -49,6 +50,9 @@ export default function Home() {
 
   useEffect(() => {
     async function getPokemon() {
+      if (typeNumber !== '10' && typeNumber !== '11') {
+        console.log('errou');
+      }
       const response = await api.get(`type/${typeNumber}/`);
       const data = response.data.pokemon.map(item => ({
         ...item,
